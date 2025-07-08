@@ -1,14 +1,17 @@
-requests
-beautifulsoup4
-pdfplumber
-PyMuPDF
-tqdm
-pandas
-lxml
-torch
-datasets
-transformers==4.52.3
-accelerate==0.25.0
-evaluate
-sacrebleu 
-sacremoses
+transformers>=4.36.0
+datasets>=2.14.0
+evaluate>=0.4.1
+pandas>=2.2.0
+torch>=2.2.0
+sentencepiece>=0.2.0
+sacremoses>=0.1.1
+
+# Metrics dependencies
+sacrebleu>=2.3.0
+nltk>=3.8.1
+rouge_score>=0.1.2
+absl-py>=2.1.0
+bert-score>=0.3.13
+
+# Optional
+tqdm>=4.66.0

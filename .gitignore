@@ -1,1 +1,33 @@
+# Virtual environment (venv, pyenv, conda)
+.venv/
 venv/
+env/
+ENV/
+.python-version  # pyenv version file (nếu dùng pyenv local)
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs
+logs/
+*.log
+
+# Model Checkpoints & Outputs
+data/
+models/
+outputs/
+checkpoints/
+results/
+
+# Hugging Face cache
+.cache/
+datasets/
+
+# Misc
+.DS_Store
