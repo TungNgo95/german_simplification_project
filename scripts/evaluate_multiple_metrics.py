@@ -4,11 +4,9 @@ import json
 from pathlib import Path
 import sys
 
-# Load prediction file
 input_path = sys.argv[1] if len(sys.argv) > 1 else "results/test_predictions.csv"
 df = pd.read_csv(input_path)
 
-# Normalize data
 sources = df["source"].fillna("").tolist()
 predictions = df["prediction"].fillna("").tolist()
 references = [[ref] for ref in df["target"].fillna("").tolist()]  # for SARI
@@ -22,7 +20,6 @@ metrics = {
     "bertscore": evaluate.load("bertscore"),
 }
 
-# Evaluate metrics
 results = {}
 
 print("\nEvaluating SARI...")
@@ -46,7 +43,6 @@ bertscore_avg = sum(bertscore_result["f1"]) / len(bertscore_result["f1"])
 results["bertscore"] = {"average_f1": bertscore_avg}
 print(f"BERTScore (avg F1): {bertscore_avg:.2f}")
 
-# Save results
 output_path = Path(input_path).parent / "multiple_metrics_score.json"
 Path(output_path).write_text(json.dumps(results, indent=2, ensure_ascii=False))
 print(f"\nAll scores saved to {output_path}")
